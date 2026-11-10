@@ -1,88 +1,40 @@
-```sql
--- ----------------------------------------------------
--- PostgreSQL DDL for Review & Rating System
--- ----------------------------------------------------
-
--- Enable extensions (if needed)
+-- Initial database schema
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
--- ----------------------------------------------------
--- users
--- ----------------------------------------------------
-CREATE TABLE users (
-    id          uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
-    email       varchar(255) NOT NULL UNIQUE,
-    created_at  timestamptz NOT NULL DEFAULT now()
+-- Users table
+CREATE TABLE IF NOT EXISTS users (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    email TEXT NOT NULL UNIQUE,
+    name TEXT,
+    password_hash TEXT NOT NULL,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
--- ----------------------------------------------------
--- orders
--- ----------------------------------------------------
-CREATE TABLE orders (
-    id           uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
-    user_id      uuid NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-    status       varchar(20) NOT NULL
-        CHECK (status IN ('pending','shipped','delivered','canceled')),
-    delivered_at timestamptz,
-    created_at   timestamptz NOT NULL DEFAULT now()
+-- Posts table
+CREATE TABLE IF NOT EXISTS posts (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    user_id UUID REFERENCES users(id) ON DELETE CASCADE,
+    title TEXT NOT NULL,
+    content TEXT NOT NULL,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
-CREATE INDEX idx_orders_user_id ON orders(user_id);
-CREATE INDEX idx_orders_status   ON orders(status);
-
--- ----------------------------------------------------
--- order_items
--- ----------------------------------------------------
-CREATE TABLE order_items (
-    id         uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
-    order_id   uuid NOT NULL REFERENCES orders(id) ON DELETE CASCADE,
-    product_id uuid NOT NULL,
-    quantity   int NOT NULL CHECK (quantity > 0)
+-- Comments table
+CREATE TABLE IF NOT EXISTS comments (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    post_id UUID REFERENCES posts(id) ON DELETE CASCADE,
+    user_id UUID REFERENCES users(id) ON DELETE SET NULL,
+    content TEXT NOT NULL,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
-CREATE INDEX idx_order_items_order_id  ON order_items(order_id);
-CREATE INDEX idx_order_items_product_id ON order_items(product_id);
+-- Indexes
+CREATE INDEX IF NOT EXISTS idx_posts_user_id ON posts(user_id);
+CREATE INDEX IF NOT EXISTS idx_comments_post_id ON comments(post_id);
 
--- ----------------------------------------------------
--- products
--- ----------------------------------------------------
-CREATE TABLE products (
-    id           uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
-    name         varchar(255) NOT NULL,
-    avg_rating   numeric(3,2) NOT NULL DEFAULT 0,
-    rating_count int NOT NULL DEFAULT 0,
-    created_at   timestamptz NOT NULL DEFAULT now()
-);
-
-CREATE INDEX idx_products_name ON products(name);
-
--- ----------------------------------------------------
--- reviews
--- ----------------------------------------------------
-CREATE TABLE reviews (
-    id          uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
-    product_id  uuid NOT NULL REFERENCES products(id) ON DELETE CASCADE,
-    user_id     uuid NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-    order_id    uuid NOT NULL REFERENCES orders(id) ON DELETE CASCADE,
-    rating      smallint NOT NULL CHECK (rating BETWEEN 1 AND 5),
-    title       varchar(255),
-    body        text,
-    verified    bool GENERATED ALWAYS AS (
-                    EXISTS (
-                        SELECT 1
-                        FROM orders o
-                        WHERE o.id = order_id
-                          AND o.user_id = user_id
-                          AND o.status = 'delivered'
-                    )
-                ) STORED,
-    created_at  timestamptz NOT NULL DEFAULT now()
-);
-
-CREATE INDEX idx_reviews_product_id ON reviews(product_id);
-CREATE INDEX idx_reviews_user_id    ON reviews(user_id);
-CREATE INDEX idx_reviews_verified   ON reviews(verified);
-
--- ----------------------------------------------------
--- helpful_votes
---
+-- Enable Citus extensions for sharding (placeholder)
+-- SELECT * FROM citus_add_shard_table('posts', 'user_id');
+-- SELECT * FROM citus_add_shard_table('comments', 'post_id');
