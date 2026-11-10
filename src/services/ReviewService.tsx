@@ -1,0 +1,33 @@
+import { Request, Response } from 'express';
+import { UserService } from '../services/UserService';
+import { ProductService } from '../services/ProductService';
+import { OrderService } from '../services/OrderService';
+import { ReviewController } from '../controllers/ReviewController';
+import { Review } from '../models/Review';
+import { ReviewService } from '../services/ReviewService';
+import { Product } from '../models/Product';
+import { Order } from '../models/Order';
+import { User } from '../models/User';
+import { OrderItem } from '../models/OrderItem';
+import { ProductService } from '../services/ProductService';
+import { OrderService } from '../services/OrderService';
+import { UserService } from '../services/UserService';
+import { ReviewController } from '../controllers/ReviewController';
+import { Review } from '../models/Review';
+import { Product } from '../models/Product';
+import { Order } from '../models/Order';
+import { OrderItem } from '../models/OrderItem';
+import { User } from '../models/User';
+import { ReviewService } from '../services/ReviewService';
+import { ProductService } from '../services/ProductService';
+import { OrderService } from '../services/OrderService';
+import { UserService } from '../services/UserService';
+import { ReviewController } from '../controllers/ReviewController';
+import { Review } from '../models/Review';
+import { Product } from '../models/Product';
+import { Order } from '../models/Order';
+import { OrderItem } from '../models/OrderItem';
+import { User } from '../models/User';
+
+export default ReviewService;
+

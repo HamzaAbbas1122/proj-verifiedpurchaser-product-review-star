@@ -1,0 +1,42 @@
+import { Request, Response } from 'express';
+import { Post, PostService } from '../models/Post';
+import { Comment, CommentService } from '../models/Comment';
+import { User, UserService } from '../models/User';
+import { Product, ProductService } from '../models/Product';
+import { Order, OrderService } from '../models/Order';
+import { Review, ReviewService } from '../models/Review';
+import { OrderItem, OrderItemService } from '../models/OrderItem';
+import { OrderStatus, OrderStatusService } from '../models/OrderStatus';
+import { ProductType, ProductTypeService } from '../models/ProductType';
+import { PostType, PostTypeService } from '../models/PostType';
+import { CommentType, CommentTypeService } from '../models/CommentType';
+import { UserType, UserTypeService } from '../models/UserType';
+import { PostServiceType, PostServiceTypeService } from '../models/PostServiceType';
+import { CommentServiceType, CommentServiceTypeService } from '../models/CommentServiceType';
+import { OrderStatusType, OrderStatusTypeService } from '../models/OrderStatusType';
+import { PostTypeType, PostTypeTypeService } from '../models/PostTypeType';
+import { CommentTypeType, CommentTypeTypeService } from '../models/CommentTypeType';
+import { UserTypeType, UserTypeTypeService } from '../models/UserTypeType';
+import { PostServiceTypeType, PostServiceTypeTypeService } from '../models/PostServiceTypeType';
+import { CommentServiceTypeType, CommentServiceTypeTypeService } from '../models/CommentServiceTypeType';
+import { OrderStatusTypeType, OrderStatusTypeTypeService } from '../models/OrderStatusTypeType';
+import { PostTypeTypeType, PostTypeTypeService } from '../models/PostTypeType';
+import { CommentTypeTypeType, CommentTypeTypeService } from '../models/CommentTypeType';
+import { UserTypeTypeType, UserTypeTypeService } from '../models/UserTypeType';
+import { PostServiceTypeTypeType, PostServiceTypeTypeService } from '../models/PostServiceTypeType';
+import { CommentServiceTypeTypeType, CommentServiceTypeTypeService } from '../models/CommentServiceTypeType';
+import { OrderStatusTypeTypeType, OrderStatusTypeTypeService } from '../models/OrderStatusTypeType';
+import { PostTypeTypeTypeType, PostTypeTypeService } from '../models/PostTypeType';
+import { CommentTypeTypeTypeType, CommentTypeTypeService } from '../models/CommentTypeType';
+import { UserTypeTypeType, UserTypeService } from '../models/UserTypeType';
+import { PostServiceTypeTypeType, PostServiceTypeService } from '../models/PostServiceType';
+import { CommentServiceTypeTypeType, CommentServiceTypeService } from '../models/CommentServiceType';
+import { OrderStatusTypeTypeType, OrderStatusTypeService } from '../models/OrderStatusTypeService';
+import { PostTypeTypeTypeType, PostTypeService } from '../models/PostTypeService';
+import { CommentTypeTypeTypeType, CommentServiceTypeService } from '../models/CommentServiceType';
+import { UserTypeTypeType, UserService } from '../models/UserService';
+import { PostServiceTypeTypeType, PostServiceTypeService } from '../models/PostServiceType';
+import { CommentServiceTypeTypeType, CommentServiceTypeService }
+
+export default PostService;
+
