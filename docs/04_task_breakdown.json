@@ -1,0 +1,90 @@
+[
+  {
+    "title": "Design reviews schema",
+    "description": "Define tables and constraints for reviews and votes",
+    "assignee_role": "database_engineer",
+    "priority": 1,
+    "dependencies": []
+  },
+  {
+    "title": "Create reviews table",
+    "description": "Implement reviews table with verified column",
+    "assignee_role": "database_engineer",
+    "priority": 1,
+    "dependencies": [
+      "Design reviews schema"
+    ]
+  },
+  {
+    "title": "Add helpful_votes table",
+    "description": "Create votes table with unique constraint",
+    "assignee_role": "database_engineer",
+    "priority": 1,
+    "dependencies": [
+      "Create reviews table"
+    ]
+  },
+  {
+    "title": "Implement submit review API",
+    "description": "Backend endpoint for verified review creation",
+    "assignee_role": "backend",
+    "priority": 2,
+    "dependencies": [
+      "Add helpful_votes table"
+    ]
+  },
+  {
+    "title": "Implement vote API",
+    "description": "Backend endpoint for helpfulness voting",
+    "assignee_role": "backend",
+    "priority": 2,
+    "dependencies": [
+      "Implement submit review API"
+    ]
+  },
+  {
+    "title": "Build review UI",
+    "description": "Frontend components for review form and voting",
+    "assignee_role": "frontend",
+    "priority": 3,
+    "dependencies": [
+      "Implement vote API"
+    ]
+  },
+  {
+    "title": "Write unit tests",
+    "description": "Test API logic and DB constraints",
+    "assignee_role": "qa",
+    "priority": 4,
+    "dependencies": [
+      "Build review UI"
+    ]
+  },
+  {
+    "title": "Code review",
+    "description": "Peer review of all changes",
+    "assignee_role": "reviewer",
+    "priority": 5,
+    "dependencies": [
+      "Write unit tests"
+    ]
+  },
+  {
+    "title": "Security audit",
+    "description": "Verify auth and input validation",
+    "assignee_role": "security",
+    "priority": 6,
+    "dependencies": [
+      "Code review"
+    ]
+  },
+  {
+    "title": "Deploy to staging",
+    "description": "CI/CD deployment to staging environment",
+    "assignee_role": "devops",
+    "priority": 7,
+    "dependencies": [
+      "Security audit"
+    ]
+  }
+]

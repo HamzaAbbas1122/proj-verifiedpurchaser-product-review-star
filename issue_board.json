@@ -1,0 +1,134 @@
+{
+  "repo_name": "proj-verifiedpurchaser-product-review-star",
+  "jira_epic_key": "SCRUM-100",
+  "issues": [
+    {
+      "title": "Design reviews schema",
+      "description": "Define tables and constraints for reviews and votes",
+      "assignee_role": "database_engineer",
+      "priority": 1,
+      "dependencies": [],
+      "jira_ticket_key": "SCRUM-101",
+      "github_issue_number": 1,
+      "github_issue_url": "https://github.com/HamzaAbbas1122/proj-verifiedpurchaser-product-review-star/issues/1",
+      "issue_status": "TODO"
+    },
+    {
+      "title": "Create reviews table",
+      "description": "Implement reviews table with verified column",
+      "assignee_role": "database_engineer",
+      "priority": 1,
+      "dependencies": [
+        "Design reviews schema"
+      ],
+      "jira_ticket_key": "SCRUM-102",
+      "github_issue_number": 2,
+      "github_issue_url": "https://github.com/HamzaAbbas1122/proj-verifiedpurchaser-product-review-star/issues/2",
+      "issue_status": "TODO"
+    },
+    {
+      "title": "Add helpful_votes table",
+      "description": "Create votes table with unique constraint",
+      "assignee_role": "database_engineer",
+      "priority": 1,
+      "dependencies": [
+        "Create reviews table"
+      ],
+      "jira_ticket_key": "SCRUM-103",
+      "github_issue_number": 3,
+      "github_issue_url": "https://github.com/HamzaAbbas1122/proj-verifiedpurchaser-product-review-star/issues/3",
+      "issue_status": "TODO"
+    },
+    {
+      "title": "Implement submit review API",
+      "description": "Backend endpoint for verified review creation",
+      "assignee_role": "backend",
+      "priority": 2,
+      "dependencies": [
+        "Add helpful_votes table"
+      ],
+      "jira_ticket_key": "SCRUM-104",
+      "github_issue_number": 4,
+      "github_issue_url": "https://github.com/HamzaAbbas1122/proj-verifiedpurchaser-product-review-star/issues/4",
+      "issue_status": "TODO"
+    },
+    {
+      "title": "Implement vote API",
+      "description": "Backend endpoint for helpfulness voting",
+      "assignee_role": "backend",
+      "priority": 2,
+      "dependencies": [
+        "Implement submit review API"
+      ],
+      "jira_ticket_key": "SCRUM-105",
+      "github_issue_number": 5,
+      "github_issue_url": "https://github.com/HamzaAbbas1122/proj-verifiedpurchaser-product-review-star/issues/5",
+      "issue_status": "TODO"
+    },
+    {
+      "title": "Build review UI",
+      "description": "Frontend components for review form and voting",
+      "assignee_role": "frontend",
+      "priority": 3,
+      "dependencies": [
+        "Implement vote API"
+      ],
+      "jira_ticket_key": "SCRUM-106",
+      "github_issue_number": 6,
+      "github_issue_url": "https://github.com/HamzaAbbas1122/proj-verifiedpurchaser-product-review-star/issues/6",
+      "issue_status": "TODO"
+    },
+    {
+      "title": "Write unit tests",
+      "description": "Test API logic and DB constraints",
+      "assignee_role": "qa",
+      "priority": 4,
+      "dependencies": [
+        "Build review UI"
+      ],
+      "jira_ticket_key": "SCRUM-107",
+      "github_issue_number": 7,
+      "github_issue_url": "https://github.com/HamzaAbbas1122/proj-verifiedpurchaser-product-review-star/issues/7",
+      "issue_status": "TODO"
+    },
+    {
+      "title": "Code review",
+      "description": "Peer review of all changes",
+      "assignee_role": "reviewer",
+      "priority": 5,
+      "dependencies": [
+        "Write unit tests"
+      ],
+      "jira_ticket_key": "SCRUM-108",
+      "github_issue_number": 8,
+      "github_issue_url": "https://github.com/HamzaAbbas1122/proj-verifiedpurchaser-product-review-star/issues/8",
+      "issue_status": "TODO"
+    },
+    {
+      "title": "Security audit",
+      "description": "Verify auth and input validation",
+      "assignee_role": "security",
+      "priority": 6,
+      "dependencies": [
+        "Code review"
+      ],
+      "jira_ticket_key": "SCRUM-109",
+      "github_issue_number": 9,
+      "github_issue_url": "https://github.com/HamzaAbbas1122/proj-verifiedpurchaser-product-review-star/issues/9",
+      "issue_status": "TODO"
+    },
+    {
+      "title": "Deploy to staging",
+      "description": "CI/CD deployment to staging environment",
+      "assignee_role": "devops",
+      "priority": 7,
+      "dependencies": [
+        "Security audit"
+      ],
+      "jira_ticket_key": "SCRUM-110",
+      "github_issue_number": 10,
+      "github_issue_url": "https://github.com/HamzaAbbas1122/proj-verifiedpurchaser-product-review-star/issues/10",
+      "issue_status": "TODO"
+    }
+  ]
+}

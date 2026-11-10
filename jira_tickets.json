@@ -1,0 +1,17 @@
+{
+  "project_key": "SCRUM",
+  "epic_key": "SCRUM-100",
+  "ticket_keys": [
+    "SCRUM-101",
+    "SCRUM-102",
+    "SCRUM-103",
+    "SCRUM-104",
+    "SCRUM-105",
+    "SCRUM-106",
+    "SCRUM-107",
+    "SCRUM-108",
+    "SCRUM-109",
+    "SCRUM-110"
+  ],
+  "jira_url": "https://hamzaabbasorax.atlassian.net"
+}
